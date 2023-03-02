@@ -2,9 +2,9 @@ import {BelongsTo, Column, DataType, ForeignKey, Model, Table} from "sequelize-t
 import {Vocabulary} from "./vocabulary.model";
 
 @Table({
-  tableName: 'vocab_meanings'
+  tableName: 'vocab_definitions'
 })
-export class VocabMeaning extends Model{
+export class VocabDefinition extends Model{
   @Column(DataType.CHAR(250))
   meaning: string;
 
@@ -22,6 +22,9 @@ export class VocabMeaning extends Model{
 
   @Column
   imageUrl2: string;
+
+  @Column(DataType.ENUM('noun', 'verb', 'adjective', 'adverb'))
+  natureOfDef: string;
 
   @ForeignKey(() => Vocabulary)
   vocabId: number;

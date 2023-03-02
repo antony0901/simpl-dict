@@ -4,7 +4,7 @@ import {Vocabulary} from "src/material/models/vocabulary.model";
 import {Account} from "src/users/models/account.model";
 
 const sequelize = new Sequelize({
-  database: process.env.database || 'beaver_dict',
+  database: process.env.database || 'simpl_dict',
   username: process.env.username || 'postgres',
   password: process.env.password || '123456',
   port: 5432,

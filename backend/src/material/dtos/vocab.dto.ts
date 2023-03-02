@@ -1,5 +1,5 @@
 import {IsArray, IsNotEmpty, IsNotEmptyObject} from "class-validator";
-import {VocabMeaning} from "../models/vocab-meaning.model";
+import {VocabDefinition} from "../models/vocab-meaning.model";
 
 export class VocabMeaningDto {
   @IsNotEmpty()
@@ -12,6 +12,8 @@ export class VocabMeaningDto {
 
   imageUrl1?: string;
   imageUrl2?: string;
+
+  natureOfWord: string;
 }
 
 export class CreateVocabularyDto {
@@ -19,5 +21,5 @@ export class CreateVocabularyDto {
   word: string;
 
   @IsArray()
-  meanings: VocabMeaning[]
+  meanings: VocabDefinition[]
 }
