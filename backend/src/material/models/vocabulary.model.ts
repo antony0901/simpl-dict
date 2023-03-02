@@ -10,4 +10,7 @@ export class Vocabulary extends Model{
 
   @HasMany(() => VocabMeaning)
   meanings: VocabMeaning[];
+
+  @Column(DataType.INTEGER)
+  createdBy: number;
 }

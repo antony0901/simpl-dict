@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simpl-dict
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: simpl-dict
+  template:
+    metadata:
+      labels:
+        app: simpl-dict
+    spec:
+      containers:
+      - name: simpl-dict
+        image: simpl-dict
+        imagePullPolicy: Never
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: simpl-dict
+spec:
+  selector:
+    app: simpl-dict
+  ports:
+  - port: 3000
+    targetPort: 3000
+
